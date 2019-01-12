@@ -14,3 +14,16 @@ The approach described here requires the following free software tools:
 - `ft-view` freetype2-demo tool ([Source](https://git.savannah.gnu.org/cgit/freetype/freetype2-demos.git/))
 
 
+### Compile the FreeType 2 Library
+
+```
+$ curl -L -O https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.gz
+$ tar -xvzf freetype-2.9.1.tar.gz
+$ mv freetype-2.9.1 freetype2
+$ cd freetype2
+$ ./configure
+$ make
+$ cd ..
+```
+
+
