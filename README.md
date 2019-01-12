@@ -1,4 +1,4 @@
-# Manual `ttfautohint` Instruction Set Adjustments
+# Manual ttfautohint Instruction Set Adjustments
 
 ## About
 
@@ -34,6 +34,5 @@ $ cd ..
 $ git clone https://git.savannah.gnu.org/git/freetype/freetype2-demos.git
 $ cd freetype2-demos
 $ make
-
 ```
 
