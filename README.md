@@ -27,7 +27,7 @@ This document describes an approach to review glyph outlines at any desired pixe
 The approach described here requires the following free software tools:
 
 - FreeType 2 library ([Source](https://git.savannah.gnu.org/cgit/freetype/freetype2.git/))
-- `ttfautothint` executable application ([Source](https://git.savannah.gnu.org/cgit/freetype/freetype2-demos.git/))
+- `ttfautohint` executable application ([Source](https://git.savannah.gnu.org/cgit/freetype/freetype2-demos.git/))
 - `ftgrid` freetype2-demo tool - Source Foundry customized branch ([Source](https://github.com/source-foundry/freetype2-demos))
 
 
