@@ -98,6 +98,11 @@ And toggle bitmap display by typing `b`:
 ![](img/bitmap-video.gif)
 
 
+Other helpful key mappings include:
+
+- transition view up or down by 0.5ppem steps with the Up/Down arrow, respectively
+- transition view to previous or next glyph index in the font with the Left/Right arrow, respectively
+
 
 ### 2. Identify points that require position adjustments with `ftgrid`
 
@@ -105,18 +110,56 @@ Select the points that require position adjustments by number in the views above
 
 ### 3. Create delta exceptions with text editor
 
-Delta exception syntax is:
+Delta exceptions are defined with text and can be created with any text editor.
+
+The delta exception syntax is:
 
 ```
+glyph‑id  touch  POINT(S)  [ x X-SHIFT_VALUE ]  [ y Y-SHIFT_VALUE ]  @  PPEM(S)
+```
+
+To shift the segment defined by points 11 and 13 down by 1/2 pixel at size 14 ppem, create the following delta exception:
 
 ```
+uni0065 touch 11,13 y -0.5 @ 14
+```
+
+To shift the segment defined by points 11 and 13 up by 1/2 pixel at size 14 ppem, create the following delta exception:
+
+```
+uni0065 touch 11,13 y 0.5 @ 14
+```
+
+Horizontal changes are defined in the same way; however, you use the `x` argument to define the x-axis.  To shift the segment defined by points 11 and 13 right by 1 pixel at size 14 ppem, create the following delta exception:
+
+```
+uni0065 touch 11,13 x 1.0 @ 14
+```
+
+Note that you can use range values to define points (e.g., `23-25`) and ppem sizes (e.g., `8-14`) in your delta exceptions.
+
 
 ### 4. Draft control instructions files with text editor
 
+Save all delta exceptions that apply to a font as a text file on any path local to the font file(s).  Define the delta exceptions in a one delta exception per line format.  You can use the `#` symbol at the beginning of a line to define the line as a comment (e.g., to describe the delta exception that follows on the next line).  All extra whitespace characters in lines are ignored so it is acceptable to use spaces and tabs within delta exception lines to format the document. Empty lines are acceptable and are ignored by `ttfautohint`.
+
+There is no specification for file path naming.  We generally name our files with the following pattern:
+
+```
+[FAMILY NAME]-[INSTANCE NAME]-TA.txt
+```
+
+For example, the delta exceptions for the `GenericSans-Regular.ttf` font could be defined with the `GenericSans-Regular-TA.txt` file. You cannot combine delta exceptions intended for more than one font in the same CIF. This means that the CIF should map 1:1 with font binaries that are hinted with ttfautohint. You can store these CIF on any local path that is accessible to `ttfautohint` during execution.  These CIF should be included in git version control and pushed to remote repositories and/or remote CI testing services when typeface sources are remotely compiled.
+
 ### 5. Apply new delta exceptions with `ttfautohint`
 
+Add the `-m` definition flag and file path argument to your existing `ttfautohint` options to indicate (1) that delta exceptions apply to the font; (2) the path to the CIF that contains the delta exceptions:
+
+```
+ttfautohint [YOUR OPTIONS] -m "cif/GenericSans-Regular-TA.txt" "ttf/GenericSans-Regular.ttf" "ttf/hinted/GenericSans-Regular.ttf"
+```
 
 
-Then, return to step one and begin the iterative workflow from the top to view your changes.
+After you compile and hint your fonts with the new delta exceptions, return to step one and begin the iterative workflow from the top to view the changes that occurred in the glyph shape and make any other necessary adjustments to the shape, or to any other shape in the glyph set.
 
 
