@@ -36,3 +36,8 @@ $ cd freetype2-demos
 $ make
 ```
 
+### Install ttfautohint
+
+Install ttfautohint using [the instructions in the ttfautohint documentation](https://www.freetype.org/ttfautohint/doc/ttfautohint.html#compilation-and-installation).
+
+
