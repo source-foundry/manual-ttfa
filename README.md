@@ -102,6 +102,7 @@ Other helpful key mappings include:
 
 - transition view up or down by 0.5ppem steps with the Up/Down arrow, respectively
 - transition view to previous or next glyph index in the font with the Left/Right arrow, respectively
+- quit the application by typing `q`
 
 
 ### 2. Identify points that require position adjustments with `ftgrid`
