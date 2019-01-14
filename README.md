@@ -28,7 +28,7 @@ The approach described here requires the following free software tools:
 
 - FreeType 2 library ([Source](https://git.savannah.gnu.org/cgit/freetype/freetype2.git/))
 - `ttfautothint` executable application ([Source](https://git.savannah.gnu.org/cgit/freetype/freetype2-demos.git/))
-- `ft-view` freetype2-demo tool - Source Foundry customized branch ([Source](https://github.com/source-foundry/freetype2-demos))
+- `ftgrid` freetype2-demo tool - Source Foundry customized branch ([Source](https://github.com/source-foundry/freetype2-demos))
 
 
 ### Compile FreeType 2 library
@@ -45,11 +45,11 @@ $ cd ..
 ```
 
 
-### Compile `ft-view` executable
+### Compile `ftgrid` executable
 
 This approach uses the [Source Foundry branch of the freetype2-demos tools](https://github.com/source-foundry/freetype2-demos) (cs-custom branch) that includes source modifications to improve support of this workflow.  The upstream project source is available at https://git.savannah.gnu.org/cgit/freetype/freetype2-demos.git/ if you prefer to use the default tool builds as released by the FreeType project. Just swap the URL for the source in the `git clone` step and proceed with the rest of the compile instructions.
 
-**Important**: *Pull the freetype-demos directory to the root directory that contains the `freetype2` directory created in the FreeType 2 library compile steps above.  The directory renaming to `freetype2` in the instructions above is mandatory to compile the freetype-demo tools that contain `ft-view`*.
+**Important**: *Pull the freetype-demos directory to the root directory that contains the `freetype2` directory created in the FreeType 2 library compile steps above.  The directory renaming to `freetype2` in the instructions above is mandatory to compile the freetype-demo tools that contain `ftgrid`*.
 
 ```
 $ git clone https://github.com/source-foundry/freetype2-demos.git
@@ -57,8 +57,36 @@ $ cd freetype2-demos
 $ make
 ```
 
+The `ftgrid` executable can be found in the `bin` directory following the `make` step.  You can execute `ftgrid` without installing the file on your system PATH by changing to the `bin` directory and executing the file with the `./` idiom before the file name.  Test your executable by printing the version with:
+
+```
+$ ./ftgrid -v
+```
+
 ### Install ttfautohint
 
 Install `ttfautohint` using [the platform-specific instructions in the ttfautohint documentation](https://www.freetype.org/ttfautohint/doc/ttfautohint.html#compilation-and-installation) or the [ttfautohint-build project README](https://github.com/source-foundry/ttfautohint-build).
+
+## Workflow
+
+### 1. View hinted glyph shapes at target size with `ftgrid`
+
+The syntax for `ftgrid` is:
+
+```
+$ ./ftgrid [-w WINDOW_WIDTH] [-h WINDOW_HEIGHT] [-f GLYPH_INDEX] POINT_SIZE FONT_PATH
+```
+
+### 2. Identify points that require position adjustments with `ftgrid`
+
+### 3. Create delta exceptions with text editor
+
+### 4. Draft control instructions files with text editor
+
+### 5. Apply new delta exceptions with `ttfautohint`
+
+
+
+Then, return to step one and begin the iterative workflow from the top to view your changes.
 
 
