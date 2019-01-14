@@ -79,9 +79,37 @@ The syntax for `ftgrid` is:
 $ ./ftgrid [-w WINDOW_WIDTH] [-h WINDOW_HEIGHT] [-f GLYPH_INDEX] POINT_SIZE FONT_PATH
 ```
 
+For example, to open glyph index # 139 in the font `GenericSans-Regular.ttf` in a 1280x960px window at a type size of 14ppem, use the following command:
+
+```
+$ ./ftgrid -w 1280 -h 960 -f 139 14 GenericSans-Regular.ttf
+```
+
+The glyph opens in an X11 window and displays the hinted outline (if previously hinted) and all on- and off-curve points with associated numbers used by `ttfautohint` to identify the points.
+
+![](img/ftgrid-crunch.png)
+
+Toggle the outline and on-curve point opacity by typing SHIFT-C:
+
+![](img/altcolor-video.gif)
+
+And toggle bitmap display by typing `b`:
+
+![](img/bitmap-video.gif)
+
+
+
 ### 2. Identify points that require position adjustments with `ftgrid`
 
+Select the points that require position adjustments by number in the views above.
+
 ### 3. Create delta exceptions with text editor
+
+Delta exception syntax is:
+
+```
+
+```
 
 ### 4. Draft control instructions files with text editor
 
