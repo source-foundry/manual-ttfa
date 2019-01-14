@@ -49,6 +49,8 @@ $ cd ..
 
 This approach uses the [Source Foundry branch of the freetype2-demos tools](https://github.com/source-foundry/freetype2-demos) (cs-custom branch) that includes source modifications to improve support of this workflow.  The upstream project source is available at https://git.savannah.gnu.org/cgit/freetype/freetype2-demos.git/ if you prefer to use the default tool builds as released by the FreeType project. Just swap the URL for the source in the `git clone` step and proceed with the rest of the compile instructions.
 
+Please note that this application requires the X11 Window system.  See the [freetype2-demos README](https://git.savannah.gnu.org/cgit/freetype/freetype2-demos.git/tree/README) for details on how to install this dependency.
+
 **Important**: *Pull the freetype-demos directory to the root directory that contains the `freetype2` directory created in the FreeType 2 library compile steps above.  The directory renaming to `freetype2` in the instructions above is mandatory to compile the freetype-demo tools that contain `ftgrid`*.
 
 ```
