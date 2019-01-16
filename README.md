@@ -97,6 +97,9 @@ And toggle bitmap display by typing `b`:
 
 ![](img/bitmap-video.gif)
 
+If you are working with a variable, Multiple Master, or GX font, you can cycle through the axes with <kbd>F2</kbd>, and increase or decrease their value by <kbd>F3</kbd> or <kbd>F4</kbd> respectively. For example, this glyph has a height axis:
+
+![](img/variable-video.gif)
 
 Other helpful key mappings include:
 
