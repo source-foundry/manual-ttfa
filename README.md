@@ -104,10 +104,10 @@ If you are working with a variable, Multiple Master, or GX font, you can cycle t
 Other helpful key mappings include:
 
 - transition view up and down by 0.5ppem steps with the <kbd>↑</kbd> Up and <kbd>↓</kbd> Down arrow, respectively
-- transition view to previous or next glyph index in the font with the <kbd>←<kbd> Left and <kbd>→<kbd> Right arrow, respectively
+- transition view to previous or next glyph index in the font with the <kbd>←</kbd> Left and <kbd>→</kbd> Right arrow, respectively
 - quit the application by typing <kbd>q</kbd>
 
-You can view all key mappings with <kbd>F1</kbd>, or <kbd>SHIFT</kbd> + <kbd>?<kbd>.
+You can view all key mappings with <kbd>F1</kbd>, or <kbd>SHIFT</kbd> + <kbd>?</kbd>.
 
 ### 2. Identify points that require position adjustments with `ftgrid`
 
