@@ -35,7 +35,7 @@ The approach described here requires the following free software tools:
 
 The following is a generic approach to compilation of the FreeType 2 library for use in this workflow.  For more detailed instructions, including necessary dependencies on your platform, please refer to the [FreeType project documentation](https://www.freetype.org/download.html).
 
-```
+```sh
 $ curl -L -O https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.gz
 $ tar -xvzf freetype-2.9.1.tar.gz && rm freetype-2.9.1.tar.gz
 $ mv freetype-2.9.1 freetype2
@@ -53,7 +53,7 @@ Please note that this application requires the X11 Window system.  See the [free
 
 **Important**: *Pull the freetype2-demos directory to the root directory that contains the `freetype2` directory created in the FreeType 2 library compile steps above.  The directory renaming to `freetype2` in the instructions above is mandatory to compile the freetype2-demos tools that contain `ftgrid`*.
 
-```
+```sh
 $ git clone https://github.com/source-foundry/freetype2-demos.git
 $ cd freetype2-demos
 $ make
@@ -61,7 +61,7 @@ $ make
 
 The `ftgrid` executable can be found in the `bin` directory following the `make` step.  You can execute `ftgrid` without installing the file on your system PATH by changing to the `bin` directory and executing the file with the `./` idiom before the file name.  Test your executable by printing the version with:
 
-```
+```sh
 $ ./ftgrid -v
 ```
 
@@ -75,13 +75,13 @@ Install `ttfautohint` using [the platform-specific instructions in the ttfautohi
 
 The syntax for `ftgrid` is:
 
-```
+```sh
 $ ./ftgrid [-w WINDOW_WIDTH] [-h WINDOW_HEIGHT] [-f GLYPH_INDEX] POINT_SIZE FONT_PATH
 ```
 
 For example, to open glyph index # 139 in the font `GenericSans-Regular.ttf` in a 1280x960px window at a type size of 14ppem, use the following command:
 
-```
+```sh
 $ ./ftgrid -w 1280 -h 960 -f 139 14 GenericSans-Regular.ttf
 ```
 
@@ -89,11 +89,11 @@ The glyph opens in an X11 window and displays the hinted outline (if previously 
 
 ![](img/ftgrid-crunch.png)
 
-Toggle the outline and on-curve point opacity by typing SHIFT-C:
+Toggle the outline and on-curve point opacity by typing <kbd>SHIFT</kbd> + <kbd>C</kbd>:
 
 ![](img/altcolor-video.gif)
 
-And toggle bitmap display by typing `b`:
+And toggle bitmap display by typing <kbd>b</kbd>:
 
 ![](img/bitmap-video.gif)
 
@@ -103,10 +103,11 @@ If you are working with a variable, Multiple Master, or GX font, you can cycle t
 
 Other helpful key mappings include:
 
-- transition view up or down by 0.5ppem steps with the Up/Down arrow, respectively
-- transition view to previous or next glyph index in the font with the Left/Right arrow, respectively
-- quit the application by typing `q`
+- transition view up or down by 0.5ppem steps with the <kbd>↑</kbd> Up/<kbd>↓</kbd> Down arrow, respectively
+- transition view to previous or next glyph index in the font with the <kbd>→<kbd> Left/<kbd>←<kbd>Right arrow, respectively
+- quit the application by typing <kbd>q</kbd>
 
+You can view all key mappings with <kbd>F1</kbd>, or <kbd>SHIFT</kbd> + <kbd>?<kbd>.
 
 ### 2. Identify points that require position adjustments with `ftgrid`
 
@@ -149,7 +150,7 @@ Save all delta exceptions that apply to a font as a text file on any path local 
 
 There is no specification for file path naming.  We generally name our files with the following pattern:
 
-```
+```sh
 [FAMILY NAME]-[INSTANCE NAME]-TA.txt
 ```
 
@@ -159,11 +160,9 @@ For example, the delta exceptions for the `GenericSans-Regular.ttf` font could b
 
 Add the `-m` definition flag and file path argument to your existing `ttfautohint` options to indicate (1) that delta exceptions apply to the font; (2) the path to the CIF that contains the delta exceptions:
 
-```
+```sh
 ttfautohint [YOUR OPTIONS] -m "cif/GenericSans-Regular-TA.txt" "ttf/GenericSans-Regular.ttf" "ttf/hinted/GenericSans-Regular.ttf"
 ```
 
 
 After you compile and hint your fonts with the new delta exceptions, return to step one and begin the iterative workflow from the top to view the changes that occurred in the glyph shape and make any other necessary adjustments to the shape, or to any other shape in the glyph set.
-
-
