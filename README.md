@@ -149,7 +149,7 @@ uni0065 touch 11,12 x 1.0 @ 14
 
 #### Range values
 
-Delta exception syntax supports range values to define points and ppem sizes in your delta exceptions.  For example, to shift points 11, 12, 13, 14, 15 up on the y axis by 0.5 pixel at 8-14 ppem sizes, you would define the delta exception like this:
+Delta exception syntax supports range values in point number and ppem size definitions.  For example, to shift points 11, 12, 13, 14, 15 up on the y axis by 0.5 pixel at 8-14 ppem sizes, you would define the delta exception like this:
 
 ```sh
 uni0065 touch 11-15 y 0.5 @ 8-14
