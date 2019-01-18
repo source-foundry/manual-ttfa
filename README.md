@@ -123,6 +123,8 @@ The delta exception syntax is:
 glyph‑id  touch  POINT(S)  [ x X-SHIFT_VALUE ]  [ y Y-SHIFT_VALUE ]  @  PPEM(S)
 ```
 
+#### y Deltas
+
 To shift the segment defined by points 11 and 12 down by 1/2 pixel at size 14 ppem, create the following delta exception:
 
 ```
@@ -135,13 +137,17 @@ To shift the segment defined by points 11 and 12 up by 1/2 pixel at size 14 ppem
 uni0065 touch 11,12 y 0.5 @ 14
 ```
 
+#### x Deltas
+
+*Please note that x deltas are ignored if ClearType is active*.
+
 Horizontal changes are defined in the same way; however, you use the `x` argument to define the x-axis.  To shift the segment defined by points 11 and 12 right by 1 pixel at size 14 ppem, create the following delta exception:
 
 ```
 uni0065 touch 11,12 x 1.0 @ 14
 ```
 
-Note that you can use range values to define points (e.g., `23-25`) and ppem sizes (e.g., `8-14`) in your delta exceptions.
+Range values to define points (e.g., `23-25`) and ppem sizes (e.g., `8-14`) in your delta exceptions.
 
 
 ### 4. Draft control instructions files with text editor
@@ -166,3 +172,9 @@ ttfautohint [YOUR OPTIONS] -m "cif/GenericSans-Regular-TA.txt" "ttf/GenericSans-
 
 
 After you compile and hint your fonts with the new delta exceptions, return to step one and begin the iterative workflow from the top to view the changes that occurred in the glyph shape and make any other necessary adjustments to the shape, or to any other shape in the glyph set.
+
+## Acknowledgments
+
+CS would like to thank Werner Lemberg for his technical review of this article, assistance with the development of the downstream `ftgrid` source that is discussed here, and for the excellent `ttfautohint` software.
+
+
