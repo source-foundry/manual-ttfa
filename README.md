@@ -91,15 +91,15 @@ The glyph opens in an X11 window and displays the hinted outline (if previously 
 
 Toggle the outline and on-curve point opacity by typing <kbd>SHIFT</kbd> + <kbd>C</kbd>:
 
-![](img/altcolor-video.gif)
+![](img/altcolor-video-optimized.gif)
 
 And toggle bitmap display by typing <kbd>b</kbd>:
 
-![](img/bitmap-video.gif)
+![](img/bitmap-video-optimized.gif)
 
 If you are working with a variable, Multiple Master, or GX font, you can cycle through the axes with <kbd>F2</kbd>, and increase or decrease their value by <kbd>F3</kbd> or <kbd>F4</kbd> respectively. For example, this glyph has a height axis:
 
-![](img/variable-video.gif)
+![](img/variable-video-optimized.gif)
 
 Other helpful key mappings include:
 
